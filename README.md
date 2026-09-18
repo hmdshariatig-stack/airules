@@ -69,7 +69,11 @@ This repository contains the official rules and regulations for MiMoCode agents 
     - AI should not be used to bypass security checks or pre-commit hooks
     - Code quality and testing standards remain the agent's responsibility
     - Respect user privacy: do not use AI to analyze or process user data without explicit authorization
-    - AI-generated decisions must be traceable and explainable
+     - AI-generated decisions must be traceable and explainable
+
+13. **Testing — Assume Production (Universal)**
+    - When asked to run tests, assume the environment is production and must not touch production databases or real project files
+    - Set up an isolated test environment using `.env.testing` or any other standard approach before running tests
 
 ## File Structure
 
@@ -91,4 +95,4 @@ These rules ensure transparency and accountability in all agent operations. All 
 
 ## Recent Updates
 
-Last updated: Sun Aug 16 2026 at 13:38:45 +0000
+Last updated: Sun Sep 18 2026 at 11:20:00 +0000
