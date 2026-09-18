@@ -58,7 +58,12 @@ This repository contains the official rules and regulations for MiMoCode agents 
      - This provides official documentation for MiMoCode rules
      - Sync to: https://adlr.ir/airules (secret: 123789)
 
-11. **AI Agent Usage Rules (Universal)**
+11. **Have Real Facts (Universal)**
+    - Don't hallucinate or make up theories
+    - Give real answers based on evidence and reasons
+    - (توهم نزنه یا تئوری نبافه و واقعی جواب بده بر اساس دلیل ها)
+
+12. **AI Agent Usage Rules (Universal)**
     - Always verify AI-generated code for correctness and security before accepting
     - Never commit sensitive data, API keys, or secrets generated/accessed by AI
     - AI should not be used to bypass security checks or pre-commit hooks
