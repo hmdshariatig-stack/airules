@@ -54,6 +54,7 @@ This repository contains the official rules and regulations for MiMoCode agents 
 - `core/artifact-integrity.md` - Zero phantom dependencies and artifact integrity rules
 - `core/execution-protocol.md` - Execution protocol and decision gatekeeping rules
 - `core/reasoning-protocol.md` - Agent reasoning and execution protocol (ReAct Cycle)
+- `core/base-agent-template.md` - Base agent template for new agent implementations
 
 ## Implementation Details
 When changes are made:
