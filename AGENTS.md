@@ -32,6 +32,13 @@ These guidelines provide detailed instructions for MiMoCode agents operating wit
 - This AGENTS.md file contains agent-specific operational details.
 - Any new rules should be added to the README.md and committed.
 
+## Self-Verification Checklist
+
+Before declaring a task complete, agents must verify:
+- [ ] Did I COPY a file that isn't confirmed in the repo tree?
+- [ ] Did I introduce a dependency without updating the package manifest?
+- [ ] Is there any assumption about the host machine that will fail in a clean clone?
+
 ## Contact
 
 For questions or clarifications, refer to the project documentation or contact the project maintainer.

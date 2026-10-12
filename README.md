@@ -3,6 +3,13 @@
 This repository contains the official rules and regulations for MiMoCode agents working in the airules project. These rules are designed to ensure consistent behavior and safety across all agent operations.
 
 ## Core Rules
+1. **Zero Phantom Dependencies & Complete Artifact Integrity**
+   - Follow the principles in `core/artifact-integrity.md`:
+     - **Principle of Explicit Manifestation**: Never reference, import, copy, or invoke any asset unless verified in the workspace or declared in the same changeset.
+     - **Principle of Atomic Completeness**: Every change must be self-contained and immediately buildable/executable.
+   - Adhere to the domain-specific enforcements (Docker, code packages, environment/secrets) defined in `core/artifact-integrity.md`.
+
+2. **Commit Everything**
 
 1. **Commit Everything**
    - After responding to each user prompt where file changes occurred, automatically commit all changes
