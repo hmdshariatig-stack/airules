@@ -38,6 +38,14 @@ This repository contains the official rules and regulations for MiMoCode agents 
      - **Pre-Execution Alignment Checkpoint**: For any non-trivial task (more than 1 isolated file edit): Inspect workspace and state confirmed facts vs. unknowns → Present concise plan and explicitly list assumptions → Ask user BEFORE generating code if any unknown/assumption exists → Execute ONLY after ambiguities are resolved.
      - **Question Formulation Standards**: Questions must NEVER be vague or open-ended. Structure every question with: Context (what is being attempted), Dilemma (what fact is missing or ambiguous), Concrete Options (Option A recommended, Option B, etc., with pros/cons).
 
+8. **Agent Reasoning & Execution Protocol (ReAct Cycle)**
+   - Follow the principles in `core/reasoning-protocol.md`:
+     - **ANALYZE & VERIFY**: Inspect the workspace first. Identify confirmed facts versus unknowns. Never assume missing files or environment configs exist.
+     - **CLARIFY BEFORE DRIFT**: If critical parameters or architectural choices are ambiguous, STOP immediately and ask the user structured options. Do not make cascading assumptions.
+     - **PLAN**: Deconstruct the task into minimal, testable, atomic steps.
+     - **EXECUTE**: Apply changes using native platform tools. Ensure every code diff is atomically complete (code + manifests + configs).
+     - **REFLECT & VERIFY**: Evaluate tool feedback. Check against the Self-Verification Checklist before declaring success.
+
 ## File Structure
 - `README.md` - Main rules documentation (this file)
 - `AGENTS.md` - Agent-specific operational guidelines
@@ -45,6 +53,7 @@ This repository contains the official rules and regulations for MiMoCode agents 
 - `notes.md` - Temporary scratchpad for session-specific observations
 - `core/artifact-integrity.md` - Zero phantom dependencies and artifact integrity rules
 - `core/execution-protocol.md` - Execution protocol and decision gatekeeping rules
+- `core/reasoning-protocol.md` - Agent reasoning and execution protocol (ReAct Cycle)
 
 ## Implementation Details
 When changes are made:

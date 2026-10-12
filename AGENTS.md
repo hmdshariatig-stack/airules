@@ -38,6 +38,8 @@ Before declaring a task complete, agents must verify:
 - [ ] Did I COPY a file that isn't confirmed in the repo tree?
 - [ ] Did I introduce a dependency without updating the package manifest?
 - [ ] Is there any assumption about the host machine that will fail in a clean clone?
+- [ ] Did I attempt to run an install/runtime command directly on the host instead of inside Docker? (Container-First & Zero Host Pollution Policy)
+- [ ] Did I follow the ReAct cycle (Analyze, Clarify, Plan, Execute, Reflect) before declaring success? (Agent Reasoning & Execution Protocol)
 
 ## Contact
 
