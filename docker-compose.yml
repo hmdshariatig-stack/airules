@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    volumes:
+      - .:/app
+      - test-reports:/app/reports
+    environment:
+      - TEST_FRAMEWORKS=phpunit,jest,pytest
+      - REPORT_FORMAT=junit,html,json
+      - CI_MODE=${CI:-false}
+    working_dir: /app
+    command: ["./run-tests.sh"]
+
+  php-test:
+    image: php:8.2-cli
+    volumes:
+      - .:/app
+      - test-reports:/app/reports
+    working_dir: /app
+    command: >
+      sh -c "
+        composer install --no-interaction --prefer-dist &&
+        php vendor/bin/phpunit --configuration test-config/phpunit.xml
+      "
+    environment:
+      - REPORT_DIR=/app/reports/php
+
+  node-test:
+    image: node:20-alpine
+    volumes:
+      - .:/app
+      - test-reports:/app/reports
+    working_dir: /app
+    command: >
+      sh -c "
+        npm install &&
+        npx jest --config test-config/jest.config.js --ci --reporters=default --reporters=jest-junit
+      "
+    environment:
+      - REPORT_DIR=/app/reports/node
+
+  python-test:
+    image: python:3.11-slim
+    volumes:
+      - .:/app
+      - test-reports:/app/reports
+    working_dir: /app
+    command: >
+      sh -c "
+        pip install -r requirements.txt &&
+        pytest test-config/pytest.ini --junitxml=/app/reports/python/junit.xml --html=/app/reports/python/report.html
+      "
+    environment:
+      - REPORT_DIR=/app/reports/python
+
+volumes:
+  test-reports:
+    driver: local

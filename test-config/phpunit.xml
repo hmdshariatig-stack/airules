@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    bootstrap="bootstrap.php"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    convertDeprecationsToExceptions="true"
+    failOnRisky="true"
+    failOnWarning="true"
+    failOnNotice="true"
+    verbose="true"
+    stopOnFailure="false"
+    executionOrder="default"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutTestDoesNotMakeAnyAssertions="true"
+    timeoutForSmallTests="10"
+    timeoutForMediumTests="100"
+    timeoutForLargeTests="300"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory>tests/Integration</directory>
+        </testsuite>
+        <testsuite name="E2E">
+            <directory>tests/E2E</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <ini name="display_errors" value="1"/>
+        <ini name="error_reporting" value="E_ALL"/>
+        <env name="APP_ENV" value="testing"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+    </php>
+    <coverage>
+        <include>
+            <directory>src</directory>
+        </include>
+        <exclude>
+            <directory>vendor</directory>
+            <directory>tests</directory>
+        </exclude>
+        <report>
+            <html>reports/php/coverage/html</html>
+            <text>reports/php/coverage/text</text>
+            <clover>reports/php/coverage/clover.xml</clover>
+        </report>
+    </coverage>
+</phpunit>
