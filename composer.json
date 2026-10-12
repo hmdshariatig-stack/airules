@@ -1,0 +1,16 @@
+{
+    "name": "airules/test-suite",
+    "description": "Test suite for the tester agent",
+    "type": "project",
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

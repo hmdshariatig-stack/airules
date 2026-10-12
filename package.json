@@ -1,0 +1,11 @@
+{
+    "name": "airules-test-suite",
+    "version": "1.0.0",
+    "description": "Test suite for the tester agent",
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "jest": "^29.0.0"
+    }
+}
