@@ -13,6 +13,14 @@ This repository contains the official rules and regulations for MiMoCode agents 
    - After responding to each user prompt where file changes occurred, automatically commit all changes
    - This includes new files, modifications, and deletions
 
+3. **Strict Blast Radius & Minimal Diff Rule**
+- **Surgical Execution**: Never refactor unasked files, change signatures, or modify database models unless explicitly requested. Limit changes strictly to the target scope.
+- **Fail-Fast / Anti-Cascade**: If a fix fails or introduces regressions, do NOT patch over the broken state with invented abstractions. Revert the changeset (`git checkout/restore`) and report the root blocker.
+- **Contract-First Verification**: Every change must satisfy an explicit contract. Before finishing:
+  - Generate or run deterministic minimal tests verifying both edge cases and core logic.
+  - Run syntax/lint checks; never deliver code that assumes runtime will "figure it out."
+  - Changes must compile and pass without relying on unseen assumptions.
+
 3. **Git Initialization**
    - Initialize git in any project directory where it is not already initialized
    - DO NOT initialize git on system-level paths like `/` or project root directories where it may not be appropriate
